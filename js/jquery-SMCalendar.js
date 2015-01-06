@@ -2,7 +2,7 @@
 	author:SM
 	e-mail:sm0210@qq.com
 	desc:SMCalendar日历插件JS
-	version:SMCalendar 1
+	version:SMCalendar 1.0
 */
 (function($){
 		 $.fn.initSMCalendar=function(options){
