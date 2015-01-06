@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SMCalendar日历</title>
+<!--
+	author:SM
+	e-mail:sm0210@qq.com
+	desc:SMCalendar日历
+	version:SMCalendar 1
+-->
+<link type="text/css" href="css/SMCalendar.css" rel="stylesheet"/>
+<style type="text/css">
+	body{ background-color:#F5F5B5;}
+	h1{text-align:center; font-size:16px; color:#311706;}
+	h1 input{ border:1px solid #311706; color:#311706; background:transparent; line-height:1.5em;}
+</style>
+<script language="javascript" src="js/jquery.js"></script>
+<script language="javascript" src="js/jquery-SMCalendar.js"></script>
+<script language="javascript">
+$(function(){
+	//数据
+	var data=[{'title':'标题1','date':'2015-01-05'},{'title':'标题1XX','date':'2015-01-05'},{'title':'标题2','date':'2014-12-17'},{'title':'标题3','date':'2014-11-28'}];
+		   
+	var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data});//初始化日历插件，并获取日历对象
+	//使用日历对象中提供的方法
+	//alert(SMCalendar.getSMCalendarDay());//获取今天
+	//alert(SMCalendar.getSMCalendarYear());//获取当前年
+	//alert(SMCalendar.getSMCalendarMonth());//获取当前月
+	
+	$("#yearStr").html("当前："+SMCalendar.getSMCalendarYear()+"年，月："+(SMCalendar.getSMCalendarMonth()+1));
+	//上一月
+	$("#prveMonth").click(function(){
+		//重新设置值
+		//data=[{'title':'标题4','date':'2014-9-07'},{'title':'标题5','date':'2014-9-17'}];
+		//SMCalendar.setDataList(data);
+
+		SMCalendar.getPrveMonth(SMCalendar.getSMCalendarYear(),SMCalendar.getSMCalendarMonth());
+		$("#yearStr").html("当前："+SMCalendar.getSMCalendarYear()+"年，月："+(SMCalendar.getSMCalendarMonth()+1));
+		
+		//reload()
+		SMCalendar.reload();
+		
+	});
+	//下一月
+	$("#nextMonth").click(function(){
+		//重新设置值
+		//data=[{'title':'标题4','date':'2014-10-1'},{'title':'标题5','date':'2014-10-2'}];
+		//SMCalendar.setDataList(data);
+								   
+		SMCalendar.getNextMonth(SMCalendar.getSMCalendarYear(),SMCalendar.getSMCalendarMonth());
+		$("#yearStr").html("当前："+SMCalendar.getSMCalendarYear()+"年，月："+(SMCalendar.getSMCalendarMonth()+1));
+		
+		//reload()
+		SMCalendar.reload();
+	});
+	
+
+	
+	/*
+		获取点击的天
+	*/	
+	//$("#SMCalendar").delegate('td','click',function(){
+	$("#SMCalendar").delegate('.dateClass','click',function(){
+		var dayStr=this.attributes.cellday? this.attributes.cellday.value : null;
+		if(dayStr){
+			//get Data
+			var data=SMCalendar.getData(dayStr);
+			console.log(data);
+			alert(dayStr+" 数据有："+data.length+" 条!");
+		}
+	});
+
+	
+});
+</script>
+</head>
+<body>
+<br/><br/>
+<h1>SMCalendar日历 V0.2 ，<span id="yearStr"></span>&nbsp;&nbsp;
+<input type="button" name="prveMonth" id="prveMonth" value="上一月" />&nbsp;&nbsp;
+<input type="button" name="nextMonth" id="nextMonth" value="下一月" /><br/><br/>
+</h1> 
+<div id="SMCalendar"></div> 
+</body>
+</html>
