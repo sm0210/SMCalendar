@@ -25,7 +25,7 @@ $(function(){
 	//数据
 	var data=[{'title':'今天标题1','date':toDay},{'title':'今天标题2','date':toDay},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];
 		   
-	var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data,onClick:smCclendarClick});//初始化日历插件，并获取日历对象
+	var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data,onClick:smCalendarClick});//初始化日历插件，并获取日历对象
 	
 	
 	var data2=[{'title':'标题1 - '+toDay,'date':toDay},{'title':'标题2 - '+toDay,'date':toDay},{'title':'标题2','date':'2015-11-19'},{'title':'标题3','date':'2015-12-27'}];
@@ -80,7 +80,7 @@ $(function(){
 	});*/
 
 	//SMCalendar 监听日历点击事件
-	function smCclendarClick(data){
+	function smCalendarClick(data){
 		console.log(data);
 		alert("当前日期数据有："+data.length+" 条!");
 	}
