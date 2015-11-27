@@ -19,16 +19,24 @@
 <script language="javascript" src="js/jquery-SMCalendar.js"></script>
 <script language="javascript">
 $(function(){
+	//今日日期
+	var toDay = (new Date().getFullYear()+'-'+(new Date().getMonth()+1)+"-"+new Date().getDate());
+	
 	//数据
-	var data=[{'title':'标题1','date':'2015-01-05'},{'title':'标题1XX','date':'2015-01-05'},{'title':'标题2','date':'2014-12-17'},{'title':'标题3','date':'2014-11-28'}];
+	var data=[{'title':'今天标题1','date':toDay},{'title':'今天标题2','date':toDay},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];
 		   
-	var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data});//初始化日历插件，并获取日历对象
+	var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data,onClick:smCclendarClick});//初始化日历插件，并获取日历对象
+	
+	
+	var data2=[{'title':'标题1 - '+toDay,'date':toDay},{'title':'标题2 - '+toDay,'date':toDay},{'title':'标题2','date':'2015-11-19'},{'title':'标题3','date':'2015-12-27'}];
+	var SMCalendar2=$("#SMCalendar2").initSMCalendar({dataList:data2,onClick:function(data){console.log(data);}});//初始化日历插件，并获取日历对象
 	//使用日历对象中提供的方法
 	//alert(SMCalendar.getSMCalendarDay());//获取今天
 	//alert(SMCalendar.getSMCalendarYear());//获取当前年
 	//alert(SMCalendar.getSMCalendarMonth());//获取当前月
 	
 	$("#yearStr").html("当前："+SMCalendar.getSMCalendarYear()+"年，月："+(SMCalendar.getSMCalendarMonth()+1));
+	$("#yearStr2").html("当前："+SMCalendar2.getSMCalendarYear()+"年，月："+(SMCalendar2.getSMCalendarMonth()+1));
 	//上一月
 	$("#prveMonth").click(function(){
 		//重新设置值
@@ -61,7 +69,7 @@ $(function(){
 		获取点击的天
 	*/	
 	//$("#SMCalendar").delegate('td','click',function(){
-	$("#SMCalendar").delegate('.dateClass','click',function(){
+	/*$("#SMCalendar").delegate('.dateClass','click',function(){
 		var dayStr=this.attributes.cellday? this.attributes.cellday.value : null;
 		if(dayStr){
 			//get Data
@@ -69,9 +77,14 @@ $(function(){
 			console.log(data);
 			alert(dayStr+" 数据有："+data.length+" 条!");
 		}
-	});
+	});*/
 
-	
+	//SMCalendar 监听日历点击事件
+	function smCclendarClick(data){
+		console.log(data);
+		alert("当前日期数据有："+data.length+" 条!");
+	}
+
 });
 </script>
 </head>
@@ -82,5 +95,12 @@ $(function(){
 <input type="button" name="nextMonth" id="nextMonth" value="下一月" /><br/><br/>
 </h1> 
 <div id="SMCalendar"></div> 
+
+
+<br/><br/>
+<h1>SMCalendar日历 V0.2 ，<span id="yearStr2"></span>&nbsp;&nbsp;
+</h1> 
+<br/>
+<div id="SMCalendar2"></div> 
 </body>
 </html>

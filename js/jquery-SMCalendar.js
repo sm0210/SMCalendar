@@ -2,7 +2,7 @@
 	author:SM
 	e-mail:sm0210@qq.com
 	desc:SMCalendar日历插件JS
-	version:SMCalendar 1.0
+	version:SMCalendar 0.2
 */
 (function($){
 		 $.fn.initSMCalendar=function(options){
@@ -160,7 +160,7 @@
 									var dateCss=s.validateCss(this.dayDate,dayId);
 									var markCalendar=s.getMarkCalendar(dayId);
 
-									htmlstr+=' class="'+dateCss+' '+markCalendar+'" id="'+dayId+'" cellday="'+dayId+'" ><span>'+dayStr+'</span>';
+									htmlstr+=' class="'+dateCss+' '+markCalendar+'" id="'+dayId+'" cellday="'+dayId+'" valign="middle" ><span>'+dayStr+'</span>';
 								}else{
 									htmlstr+=' ><span></span>';
 								}
@@ -172,7 +172,7 @@
 								var dateCss=s.validateCss(this.dayDate,dayId);
 								var markCalendar=s.getMarkCalendar(dayId);
 								
-								htmlstr+=' id="'+dayId+'" cellday="'+dayId+'" class="'+dateCss+' '+markCalendar+'"><span>'+dayStr+'</span></td>';
+								htmlstr+=' id="'+dayId+'" cellday="'+dayId+'" class="'+dateCss+' '+markCalendar+'" valign="middle"><span>'+dayStr+'</span></td>';
 									
 							}//end if
 						}//end for
@@ -190,6 +190,24 @@
 			//默认日历初始化方法
 			s.newSMCalendar = function(){
 				$("#"+SMCalendarId).html(s.addSMCalendar());
+				
+				//事件抛出
+				//获取日历的点击事件
+				$("#"+SMCalendarId+" .dateClass").click(function(){
+					//获取点击日期
+					var dayStr=this.attributes.cellday? this.attributes.cellday.value : null;
+					if(dayStr){
+						//get Data
+						var data=s.getData(dayStr);
+						//如果click是对象
+						if(typeof s.onClick === "function") {
+							//抛出事件
+							s.onClick.call(this, data);
+						}
+					}
+				});
+				
+				
 			},
 			//下一月
 			s.getNextMonth = function(yearStr,monthStr){
@@ -246,7 +264,7 @@
 			//当前月
 			monthday : (new Date().getMonth()+1),
 			//今天
-			dayDate : (new Date().getFullYear()+'-'+(new Date().getMonth()+1)+"-"+new Date().getDate()) ,
+			dayDate : (new Date().getFullYear()+'-'+(new Date().getMonth()+1)+"-"+new Date().getDate()),
 			//dataList
 			dataList : []
 		};
