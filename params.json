@@ -1,6 +1,6 @@
 {
   "name": "Smcalendar",
   "tagline": "SMCalendar日期组件",
-  "body": "SMCalendar日期组件",
+  "body": "﻿SMCalendar\r\n==========\r\nSMCalendar 日历，依赖Jquery，有问题请发邮件：sm0210@qq.com\r\n\r\n\r\n##效果\r\n\r\n![](https://github.com/sm0210/SMCalendar/blob/JAVASCRIPT/SMCalendar.png)\r\n\r\n![](https://github.com/sm0210/SMCalendar/blob/JAVASCRIPT/SMCalendar0.2.png \"SMCalendar\")\r\n\r\n\r\n##实例化SMCalendar日历对象一，简单实例化无需任何参数\r\nvar SMCalendar=$(\"#SMCalendar\").initSMCalendar();//初始化日历插件，并获取日历对象\r\n\r\n\r\n##实例化SMCalendar日历对象二，传入日期数据\r\n\r\n//数据\r\n\r\nvar data=[{'title':'今天标题1','date':'2015-11-19'},{'title':'今天标题2','date':'2015-11-19'},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];\r\n\r\n//初始化日历插件，并获取日历对象\r\n\r\nvar SMCalendar=$(\"#SMCalendar\").initSMCalendar({dataList:data});\r\n\r\n\r\n##实例化SMCalendar日历对象三，传入日期数据并监听自定义事件\r\n\r\n//数据\r\n\r\nvar data=[{'title':'今天标题1','date':'2015-11-19'},{'title':'今天标题2','date':'2015-11-19'},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];\r\n\r\n//初始化日历插件，并获取日历对象\r\n\t   \r\nvar SMCalendar=$(\"#SMCalendar\").initSMCalendar({dataList:data,onClick:smCalendarClick});\r\n\r\n//自定义事件\r\n\r\nfunction smCalendarClick(data){\r\n\talert(\"当前日期数据有：\"+data.length+\" 条!\");\r\n}\r\n\r\n\r\n\r\n\r\n\r\n###如果您觉得此文有帮助，可以打赏点钱给我支付宝sm0210@qq.com ，或扫描二维码\r\n![](https://github.com/sm0210/SMCalendar/blob/master/sm0210%40qq.com.jpg \"sm0210@qq.com\")\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }

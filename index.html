@@ -1,62 +1,82 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Smcalendar by sm0210</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Smcalendar</h1>
+      <h2 class="project-tagline">SMCalendar日期组件</h2>
+      <a href="https://github.com/sm0210/SMCalendar" class="btn">View on GitHub</a>
+      <a href="https://github.com/sm0210/SMCalendar/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sm0210/SMCalendar/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/github-dark.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <section class="main-content">
+      <h1>
+<a id="smcalendar" class="anchor" href="#smcalendar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SMCalendar</h1>
 
-  <title>Smcalendar</title>
-  <meta name="description" content="SMCalendar日期组件">
+<p>SMCalendar 日历，依赖Jquery，有问题请发邮件：<a href="mailto:sm0210@qq.com">sm0210@qq.com</a></p>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<h2>
+<a id="效果" class="anchor" href="#%E6%95%88%E6%9E%9C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>效果</h2>
 
-</head>
+<p><img src="https://github.com/sm0210/SMCalendar/blob/JAVASCRIPT/SMCalendar.png" alt=""></p>
 
-<body>
+<p><img src="https://github.com/sm0210/SMCalendar/blob/JAVASCRIPT/SMCalendar0.2.png" alt="" title="SMCalendar"></p>
 
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Smcalendar</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">SMCalendar日期组件</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/sm0210/SMCalendar/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/sm0210/SMCalendar/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/sm0210/SMCalendar" class="code">View Smcalendar on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <p>SMCalendar日期组件</p>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/sm0210" class="avatar"><img src="https://avatars2.githubusercontent.com/u/10410886?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/sm0210">sm0210</a> maintains <a href="https://github.com/sm0210/SMCalendar">Smcalendar</a></p>
+<h2>
+<a id="实例化smcalendar日历对象一简单实例化无需任何参数" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96smcalendar%E6%97%A5%E5%8E%86%E5%AF%B9%E8%B1%A1%E4%B8%80%E7%AE%80%E5%8D%95%E5%AE%9E%E4%BE%8B%E5%8C%96%E6%97%A0%E9%9C%80%E4%BB%BB%E4%BD%95%E5%8F%82%E6%95%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>实例化SMCalendar日历对象一，简单实例化无需任何参数</h2>
 
+<p>var SMCalendar=$("#SMCalendar").initSMCalendar();//初始化日历插件，并获取日历对象</p>
 
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/sm0210/SMCalendar/tarball/master" class="tar">tar</a><a href="https://github.com/sm0210/SMCalendar/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
+<h2>
+<a id="实例化smcalendar日历对象二传入日期数据" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96smcalendar%E6%97%A5%E5%8E%86%E5%AF%B9%E8%B1%A1%E4%BA%8C%E4%BC%A0%E5%85%A5%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>实例化SMCalendar日历对象二，传入日期数据</h2>
+
+<p>//数据</p>
+
+<p>var data=[{'title':'今天标题1','date':'2015-11-19'},{'title':'今天标题2','date':'2015-11-19'},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];</p>
+
+<p>//初始化日历插件，并获取日历对象</p>
+
+<p>var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data});</p>
+
+<h2>
+<a id="实例化smcalendar日历对象三传入日期数据并监听自定义事件" class="anchor" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96smcalendar%E6%97%A5%E5%8E%86%E5%AF%B9%E8%B1%A1%E4%B8%89%E4%BC%A0%E5%85%A5%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE%E5%B9%B6%E7%9B%91%E5%90%AC%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>实例化SMCalendar日历对象三，传入日期数据并监听自定义事件</h2>
+
+<p>//数据</p>
+
+<p>var data=[{'title':'今天标题1','date':'2015-11-19'},{'title':'今天标题2','date':'2015-11-19'},{'title':'标题2','date':'2015-11-20'},{'title':'标题3','date':'2015-12-28'}];</p>
+
+<p>//初始化日历插件，并获取日历对象</p>
+
+<p>var SMCalendar=$("#SMCalendar").initSMCalendar({dataList:data,onClick:smCalendarClick});</p>
+
+<p>//自定义事件</p>
+
+<p>function smCalendarClick(data){
+    alert("当前日期数据有："+data.length+" 条!");
+}</p>
+
+<h3>
+<a id="如果您觉得此文有帮助可以打赏点钱给我支付宝sm0210qqcom-或扫描二维码" class="anchor" href="#%E5%A6%82%E6%9E%9C%E6%82%A8%E8%A7%89%E5%BE%97%E6%AD%A4%E6%96%87%E6%9C%89%E5%B8%AE%E5%8A%A9%E5%8F%AF%E4%BB%A5%E6%89%93%E8%B5%8F%E7%82%B9%E9%92%B1%E7%BB%99%E6%88%91%E6%94%AF%E4%BB%98%E5%AE%9Dsm0210qqcom-%E6%88%96%E6%89%AB%E6%8F%8F%E4%BA%8C%E7%BB%B4%E7%A0%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>如果您觉得此文有帮助，可以打赏点钱给我支付宝<a href="mailto:sm0210@qq.com">sm0210@qq.com</a> ，或扫描二维码</h3>
+
+<p><img src="https://github.com/sm0210/SMCalendar/blob/master/sm0210%40qq.com.jpg" alt="" title="sm0210@qq.com"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sm0210/SMCalendar">Smcalendar</a> is maintained by <a href="https://github.com/sm0210">sm0210</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
 
   
-</body>
+  </body>
 </html>
